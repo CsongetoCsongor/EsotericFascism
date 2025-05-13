@@ -12,6 +12,7 @@ body {
   background-color: #f4f4f4;
   background-image: url("images/swastika.png");
   background-size: 50px;
+  font-family: Canterbury;
 }
 
 .container {
@@ -35,7 +36,6 @@ header {
 }
 header h1 {
   margin: 0;
-  font-family: Canterbury;
 }
 header nav .menu {
   list-style: none;
