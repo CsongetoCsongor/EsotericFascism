@@ -1,0 +1,107 @@
+$primary-color: #b80606;
+$background-color: #f4f4f4;
+$link-color: #007bff;
+$background-image: url('images/swastika.png');
+
+@font-face {
+    font-family: OldEnglishFive;
+    src: url('fonts/old-english-five.regular.ttf');
+}
+
+@font-face {
+    font-family: Canterbury;
+    src: url('fonts/canterbury.regular.ttf');
+}
+
+body {
+    margin: 0;
+    color: white;
+    background-color: $background-color;
+    background-image: $background-image;
+    background-size: 50px;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+}
+
+.hero-image {
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+
+header {
+    background-color: $primary-color;
+
+    color: white;
+    padding: 1rem 2rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h1 {
+        margin: 0;
+        font-family: Canterbury;
+    }
+
+    nav {
+        .menu {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-left: 1rem;
+
+                a {
+                    color: white;
+                    text-decoration: none;
+                    transition: color 0.3s;
+
+                    &:hover {
+                        color: $link-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+  
+  /* Main Content Section */
+  .main-content {
+    padding: 2rem 0;
+    background-color: black;
+    color: white;
+        .container-main-content {
+            margin: 5rem;
+            h2 {
+                font-size: 2rem;
+                margin-bottom: 1rem;
+              }
+            
+              p {
+                font-size: 1rem;
+                line-height: 1.6;
+              }
+        }
+    
+  }
+  
+  /* Footer */
+  footer {
+    background-color: $primary-color;
+    color: white;
+    padding: 1rem 0;
+  
+    .container {
+      text-align: center;
+    }
+  }

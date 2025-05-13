@@ -1,0 +1,86 @@
+@font-face {
+  font-family: OldEnglishFive;
+  src: url("fonts/old-english-five.regular.ttf");
+}
+@font-face {
+  font-family: Canterbury;
+  src: url("fonts/canterbury.regular.ttf");
+}
+body {
+  margin: 0;
+  color: white;
+  background-color: #f4f4f4;
+  background-image: url("images/swastika.png");
+  background-size: 50px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+header {
+  background-color: #b80606;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  margin: 0;
+  font-family: Canterbury;
+}
+header nav .menu {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+header nav .menu li {
+  margin-left: 1rem;
+}
+header nav .menu li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+header nav .menu li a:hover {
+  color: #007bff;
+}
+
+/* Main Content Section */
+.main-content {
+  padding: 2rem 0;
+  background-color: black;
+  color: white;
+}
+.main-content .container-main-content {
+  margin: 5rem;
+}
+.main-content .container-main-content h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.main-content .container-main-content p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Footer */
+footer {
+  background-color: #b80606;
+  color: white;
+  padding: 1rem 0;
+}
+footer .container {
+  text-align: center;
+}
+
+/*# sourceMappingURL=style.css.map */
