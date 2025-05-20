@@ -3,6 +3,8 @@ $background-color: #f4f4f4;
 $link-color: #007bff;
 $background-image: url('images/swastika.png');
 
+// npx sass -w style.scss style.css
+
 @font-face {
     font-family: OldEnglishFive;
     src: url('fonts/old-english-five.regular.ttf');
@@ -13,19 +15,36 @@ $background-image: url('images/swastika.png');
     src: url('fonts/canterbury.regular.ttf');
 }
 
+@mixin center80 {
+    width: 80%;
+    margin: auto;
+}
+
+@mixin colorred_bgblack {
+    color: red;
+    background-color: black;
+}
+
+/* Overlay Styles */
+
+
+
 body {
     margin: 0;
     color: white;
     background-color: $background-color;
     background-image: $background-image;
     background-size: 50px;
-    font-family: Canterbury;
+    // font-family: Canterbury;
+}
 
+body.noscroll {
+    overflow: hidden;
 }
 
 .container {
-    width: 80%;
-    margin: auto;
+    @include center80;
+    background-color: black;
 }
 
 .hero-image {
@@ -38,9 +57,7 @@ body {
 
 header {
     background-color: $primary-color;
-
     color: white;
-    padding: 1rem 2rem;
 
     display: flex;
     justify-content: space-between;
@@ -60,15 +77,25 @@ header {
 
             li {
                 margin-left: 1rem;
+                padding: 1rem 0 1rem 0;
+                transition: 0.5s;
 
                 a {
-                    color: white;
+                    display: block;
                     text-decoration: none;
-                    transition: color 0.3s;
+                    color: white;
+                    /* Make sure the initial color is set */
+                    transition: color 0.5s, background-color 0.5s;
+                }
 
-                    &:hover {
-                        color: $link-color;
-                    }
+                &:hover {
+                    background-color: $background-color;
+                    /* Change background color */
+                }
+
+                &:hover a {
+                    color: $primary-color;
+                    /* Change the text color when hovering */
                 }
             }
         }
@@ -76,35 +103,158 @@ header {
 }
 
 
-  
-  /* Main Content Section */
-  .main-content {
+.main-content {
+    display: block;
+    margin: 0;
+    padding: 0;
+
+}
+
+/* Main Content Section */
+.article {
     padding: 2rem 0;
-    background-color: black;
     color: white;
-    .container-main-content {
-            // font-family: Canterbury;   
-            margin: 5rem;
-            h2 {
-                font-size: 2rem;
-                margin-bottom: 1rem;
-              }
-            
-              p {
-                font-size: 1rem;
-                line-height: 1.6;
-              }
+    display: flex;
+    align-items: flex-start; // or center if you want vertical alignment
+    gap: 40px;
+    margin: 5rem;
+
+    .aricle-text {
+        // font-family: Canterbury;   
+        // margin: 5rem;
+        flex: 1; // takes up available space
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
         }
-    
-  }
-  
-  /* Footer */
-  footer {
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+
+    }
+
+    img {
+        width: 300px;
+        height: auto;
+    }
+
+}
+
+/* Footer */
+footer {
     background-color: $primary-color;
     color: white;
     padding: 1rem 0;
-  
-    .container {
-      text-align: center;
+
+    .footer {
+        text-align: center;
+        @include center80;
     }
-  }
+}
+
+.warning-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('images/primeupscaled.jfif');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    /* Horizontally center */
+    align-items: center;
+    /* Vertically center */
+    z-index: 9999;
+    /* Ensure it stays on top */
+    visibility: visible;
+    /* Initially visible */
+    opacity: 1;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+
+    .warning-content {
+
+
+        border-radius: 8px;
+        text-align: center;
+        width: 100%px;
+        
+
+        h1 {
+            @include colorred_bgblack;
+            font-size: 60px;
+
+        }
+
+        p {
+            @include colorred_bgblack;
+            font-size: 30px;
+        }
+
+        button {
+            border: none;
+            display: block;
+            position: relative;
+            padding: 0.7em 2.4em;
+            font-size: 18px;
+            background: transparent;
+            cursor: pointer;
+            user-select: none;
+            overflow: hidden;
+            color: $primary-color;
+            z-index: 1;
+            font-family: inherit;
+            font-weight: 500;
+            margin: auto;
+            background-color: rgba(0, 0, 0, 0.527);
+            border-radius: 5px;
+          
+            span {
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+              background: transparent;
+              z-index: -1;
+              border: 4px solid $primary-color;
+          
+              &::before {
+                content: "";
+                display: block;
+                position: absolute;
+                width: 8%;
+                height: 500%;
+                background: var(--lightgray);
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%) rotate(-60deg);
+                transition: all 0.7s;
+              }
+            }
+          
+            &:hover {
+              color: white;
+          
+              span::before {
+                transform: translate(-50%, -50%) rotate(-90deg);
+                width: 100%;
+                background: $primary-color;
+              }
+            }
+          
+            &:active {
+              span::before {
+                background: black;
+              }
+            }
+          }
+          
+    }
+}
