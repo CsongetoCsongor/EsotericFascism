@@ -29,6 +29,15 @@ $background-image: url('images/swastika.png');
     border: 1px solid white;
 }
 
+@keyframes spin-black-sun {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
 /* Overlay Styles */
 
 .button-style-1 {
@@ -191,6 +200,10 @@ header {
         font-size: 3rem;
     }
 
+}
+
+#black-sun {
+    animation: spin-black-sun 2s linear infinite;
 }
 
 /* Main Content Section */
