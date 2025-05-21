@@ -126,7 +126,7 @@ header nav .menu a {
   display: block;
   text-decoration: none;
   color: white;
-  /* Make sure the initial color is set */
+  cursor: pointer;
   transition: color 0.5s, background-color 0.5s;
   border-right: rgba(255, 255, 255, 0.534) 1px solid;
 }
@@ -140,6 +140,7 @@ header nav .menu a:hover {
 }
 header nav .menu a:last-child {
   border: none;
+  border-bottom-right-radius: 10px;
 }
 
 .main-content {
@@ -238,6 +239,11 @@ footer .footer {
   color: red;
   background-color: black;
   font-size: 30px;
+}
+
+.active {
+  background-color: #f4f4f4 !important;
+  color: #b80606 !important;
 }
 
 /*# sourceMappingURL=style.css.map */
