@@ -73,6 +73,7 @@ body {
   background-color: #f4f4f4;
   background-image: url("images/swastika.png");
   background-size: 50px;
+  font-family: Canterbury;
 }
 
 body.noscroll {
@@ -148,7 +149,7 @@ header nav .menu a:last-child {
 }
 
 #black-sun {
-  animation: spin-black-sun 2s linear infinite;
+  animation: spin-black-sun 3s linear infinite;
 }
 
 /* Main Content Section */
