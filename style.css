@@ -7,6 +7,58 @@
   src: url("fonts/canterbury.regular.ttf");
 }
 /* Overlay Styles */
+.button-style-1 {
+  border: none;
+  display: block;
+  position: relative;
+  padding: 0.7em 2.4em;
+  font-size: 18px;
+  background: transparent;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  color: #b80606;
+  z-index: 1;
+  font-family: inherit;
+  font-weight: 500;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.527);
+  border-radius: 5px;
+}
+.button-style-1 span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: -1;
+  border: 4px solid #b80606;
+}
+.button-style-1 span::before {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 8%;
+  height: 500%;
+  background: var(--lightgray);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-60deg);
+  transition: all 0.7s;
+}
+.button-style-1:hover {
+  color: white;
+}
+.button-style-1:hover span::before {
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: 100%;
+  background: #b80606;
+}
+.button-style-1:active span::before {
+  background: black;
+}
+
 body {
   margin: 0;
   color: white;
@@ -22,7 +74,6 @@ body.noscroll {
 .container {
   width: 80%;
   margin: auto;
-  background-color: black;
 }
 
 .hero-image img {
@@ -31,15 +82,23 @@ body.noscroll {
   display: block;
 }
 
+#header-container {
+  margin: 0;
+  padding: 0;
+}
+
 header {
   background-color: #b80606;
   color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  margin: 0 0 3rem 0;
 }
 header h1 {
-  margin: 0;
+  margin: 0 0 0 1rem;
 }
 header nav .menu {
   list-style: none;
@@ -47,41 +106,47 @@ header nav .menu {
   margin: 0;
   padding: 0;
 }
-header nav .menu li {
-  margin-left: 1rem;
-  padding: 1rem 0 1rem 0;
-  transition: 0.5s;
-}
-header nav .menu li a {
+header nav .menu a {
   display: block;
   text-decoration: none;
   color: white;
   /* Make sure the initial color is set */
   transition: color 0.5s, background-color 0.5s;
+  border-right: rgba(255, 255, 255, 0.534) 1px solid;
 }
-header nav .menu li:hover {
+header nav .menu a li {
+  padding: 1.5rem 1rem 1.5rem 1rem;
+  transition: 0.5s;
+}
+header nav .menu a:hover {
   background-color: #f4f4f4;
-  /* Change background color */
-}
-header nav .menu li:hover a {
   color: #b80606;
-  /* Change the text color when hovering */
+}
+header nav .menu a:last-child {
+  border: none;
 }
 
 .main-content {
   display: block;
-  margin: 0;
-  padding: 0;
+  margin: 0 0 0 0;
+  padding: 2rem 0 5rem 0;
+  background-color: rgb(0, 0, 0);
+  border: 1px solid white;
+  border-radius: 10px;
+}
+.main-content h1 {
+  text-align: center;
+  font-size: 3rem;
 }
 
 /* Main Content Section */
 .article {
-  padding: 2rem 0;
+  padding: 0;
   color: white;
   display: flex;
   align-items: flex-start;
   gap: 40px;
-  margin: 5rem;
+  margin: 0 5rem 5rem 5rem;
 }
 .article .aricle-text {
   flex: 1;
@@ -98,12 +163,18 @@ header nav .menu li:hover a {
   width: 300px;
   height: auto;
 }
+.article:last-child {
+  margin-bottom: 0;
+}
 
 /* Footer */
 footer {
   background-color: #b80606;
   color: white;
   padding: 1rem 0;
+  margin: 3rem 0 0 0;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
 }
 footer .footer {
   text-align: center;
@@ -117,7 +188,7 @@ footer .footer {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url("images/primeupscaled.jfif");
+  background-image: url("images/ashtar.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -147,57 +218,6 @@ footer .footer {
   color: red;
   background-color: black;
   font-size: 30px;
-}
-.warning-overlay .warning-content button {
-  border: none;
-  display: block;
-  position: relative;
-  padding: 0.7em 2.4em;
-  font-size: 18px;
-  background: transparent;
-  cursor: pointer;
-  user-select: none;
-  overflow: hidden;
-  color: #b80606;
-  z-index: 1;
-  font-family: inherit;
-  font-weight: 500;
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.527);
-  border-radius: 5px;
-}
-.warning-overlay .warning-content button span {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background: transparent;
-  z-index: -1;
-  border: 4px solid #b80606;
-}
-.warning-overlay .warning-content button span::before {
-  content: "";
-  display: block;
-  position: absolute;
-  width: 8%;
-  height: 500%;
-  background: var(--lightgray);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-60deg);
-  transition: all 0.7s;
-}
-.warning-overlay .warning-content button:hover {
-  color: white;
-}
-.warning-overlay .warning-content button:hover span::before {
-  transform: translate(-50%, -50%) rotate(-90deg);
-  width: 100%;
-  background: #b80606;
-}
-.warning-overlay .warning-content button:active span::before {
-  background: black;
 }
 
 /*# sourceMappingURL=style.css.map */
