@@ -28,55 +28,22 @@
         <h1>Ezoterikus fasizmus</h1>
         <nav>
           <ul class="menu">
-            <a href="#"><li>Kezdőlap</li></a>
-            <a href="#"><li>Agartha</li></a>
-            <a href="#"><li>Hyperborea</li></a>
-            <a href="#"><li>Thule</li></a>
-            <a href="#"><li>George Droid</li></a>
+            <a id="load-page_0"><li>Kezdőlap</li></a>
+            <a id="load-page_1"><li>Ezoterikus tudás</li></a>
+            <a id="load-page_2"><li>Elveszett földek</li></a>
+            <a id="load-page_3"><li>Titkos társadalmak</li></a>
+            <a id="load-page_4"><li>Egyéb</li></a>
           </ul>
         </nav>
       </header>
     </span>
 
 
+    <span id="current-content">
+      
+    </span>
+    
 
-    <!-- Main Content Section -->
-    <section class="main-content">
-      <h1>Üdvözöllek a weboldalon!</h1>
-      <article class="article">
-        <div class="aricle-text">
-          <h2>Az ezoterikus fasizmusról</h2>
-          <p>Az ezoterikus neonácizmus, más néven ezoterikus nácizmus, ezoterikus fasizmus vagy ezoterikus hitlerizmus,
-            a náci ideológia és a misztikus, okkult és ezoterikus hagyományok fúziója. Ez a hitrendszer a második
-            világháború után alakult ki, amikor a hívek a Harmadik Birodalom eszméit egy új vallási mozgalom
-            kontextusában próbálták újraértelmezni és adaptálni. Az ezoterikus nácizmust az árja felsőbbrendűség mitikus
-            és spirituális dimenzióinak hangsúlyozása jellemzi, számos forrásból merítve, beleértve a teozófiát, az
-            ariozófiát és a gnosztikus dualizmust. Ezek a hiedelmek bonyolult és gyakran ellentmondó gondolatokká
-            fejlődtek, amelyek a rasszista és felsőbbrendűségi ideológiákat próbálják igazolni és állandósítani a
-            spirituális megvilágosodás leple alatt.</p>
-        </div>
-        <img src="images/black-sun-2.png" alt="Fekete nap" id="black-sun">
-      </article>
-
-      <article class="article">
-        <img src="images/hitler1.jpg" alt="Fekete nap">
-        <div class="aricle-text">
-          <h2>Kialakulása</h2>
-          <p>A Harmadik Birodalom vezére, Adolf Hitler, valamint a náci főemberek közül Heinrich Himmler és Rudolf Hess
-            is erősen hittek az okkultizmusban, a misztikában és az asztrológiában. Himmler, az SS vezetője különösen
-            vonzódott az ősi legendákhoz és germán mítoszokhoz, amelyek alapján sajátos szertartásokat vezette be az
-            általa amolyan náci lovagrendként kezelt SS-be A nácik ideológiai előfutárának a Münchenben működő, és Anton
-            Drexler Német Munkáspártját, a későbbi náci pártot is szponzoráló okkultista, valamint hagyományőrző Thule
-            Társaságot tekinthetjük. Amikor Hitler magához ragadta Drexler pártjának vezetését, átnevezve azt
-            Nemzetiszocialista Német Munkáspárttá, a Thule Társaság, amely zavaros ideológiájában az antiszemitizmust, a
-            német nacionalizmust, az okkult gyógyítást és az elveszett kontinensekről való spekulációt egyesítette,
-            beolvadt a náci pártba.</p>
-        </div>
-      </article>
-
-    </section>
-
-    <!-- Footer Section -->
     <footer>
       <div class="footer">
         <p>&copy; 1933 Ezoterikus fasizmus. <b>N.H.H.</b></p>
@@ -84,23 +51,9 @@
     </footer>
 
   </div>
-
-  <script>
-    const warningOverlay = document.getElementById('warningOverlay');
-    const dismissButton = document.getElementById('dismissButton');
-
-    // Disable scroll on load
-    document.body.classList.add('noscroll');
-
-    dismissButton.addEventListener('click', function () {
-      warningOverlay.style.opacity = '0';
-      warningOverlay.style.visibility = 'hidden';
-
-      // Re-enable scrolling
-      document.body.classList.remove('noscroll');
-    });
-
-  </script>
+  <script src="manage_warning.js"></script>
+  <script src="manage_content.js"></script>
+  <script src="manage_animations.js"></script>
 
 </body>
 

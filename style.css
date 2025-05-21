@@ -6,12 +6,12 @@
   font-family: Canterbury;
   src: url("fonts/canterbury.regular.ttf");
 }
-@keyframes spin-black-sun {
+@keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(360deg);
+    transform: rotate(-360deg);
   }
 }
 /* Overlay Styles */
@@ -67,13 +67,20 @@
   background: black;
 }
 
+#gnosticism-dynamic {
+  width: 300px;
+  height: 200px;
+  object-fit: cover;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+
 body {
   margin: 0;
   color: white;
   background-color: #f4f4f4;
   background-image: url("images/swastika.png");
   background-size: 50px;
-  font-family: Canterbury;
 }
 
 body.noscroll {
@@ -148,8 +155,8 @@ header nav .menu a:last-child {
   font-size: 3rem;
 }
 
-#black-sun {
-  animation: spin-black-sun 3s linear infinite;
+#swastika {
+  animation: spin 1s linear infinite;
 }
 
 /* Main Content Section */
