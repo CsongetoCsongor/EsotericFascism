@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(response => response.text()) // Parse the response as text (HTML content)
         .then(data => {
             // Replace the current content with the fetched HTML content
+            document.getElementById("load-page_0").classList.add("active");
             document.getElementById("current-content").innerHTML = data;
             ;
         })
@@ -13,35 +14,34 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-document.getElementById("load-page_0").addEventListener("click", function () {
-    // Fetch the content of the new HTML file (newContent.html)
-    fetch('./pages/page_0.html')
-        .then(response => response.text()) // Parse the response as text (HTML content)
-        .then(data => {
-            // Replace the current content with the fetched HTML content
-            document.getElementById("current-content").innerHTML = data;
-        })
-        .catch(error => {
-            console.error('Error loading content:', error);
-        });
-    this.classList.add("active");
-});
+for (let index = 0; index <= 4; index++) {
+    loadcontent(index);
+}
 
+function loadcontent(num) {
+    document.getElementById(`load-page_${num}`).addEventListener("click", function () {
+        // Fetch the content of the new HTML file (newContent.html)
+        fetch(`./pages/page_${num}.html`)
+            .then(response => response.text()) // Parse the response as text (HTML content)
+            .then(data => {
+                // Replace the current content with the fetched HTML content
+                document.getElementById("current-content").innerHTML = data;
+                resetMenu();
+                changeImages1();
+                this.classList.add("active");
+            })
+            .catch(error => {
+                console.error('Error loading content:', error);
+            });
+    });
+}
 
-document.getElementById("load-page_1").addEventListener("click", function () {
-    // Fetch the content of the new HTML file (newContent.html)
-    fetch('./pages/page_1.html')
-        .then(response => response.text()) // Parse the response as text (HTML content)
-        .then(data => {
-            // Replace the current content with the fetched HTML content
-            document.getElementById("current-content").innerHTML = data;
-            changeImages1();
-        })
-        .catch(error => {
-            console.error('Error loading content:', error);
-        });
-    this.classList.add("active");
-});
+function resetMenu() {
+    const menuPoints = document.getElementsByClassName("menu-point");
+    Array.from(menuPoints).forEach(menupoint => {
+        menupoint.classList.remove("active");
+    });
+}
 
 
 

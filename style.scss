@@ -219,8 +219,12 @@ header {
     animation: spin 1s linear infinite;
 }
 
+#black-sun {
+    animation: spin 2.5s linear infinite;
+}
+
 /* Main Content Section */
-.article {
+.article-type-1 {
     padding: 0;
     color: white;
     display: flex;
@@ -257,6 +261,46 @@ header {
     }
 
 }
+
+.article-type-2 {
+    padding: 0;
+    color: white;
+    margin: 0 5rem 5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  
+    .article-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 40px;
+    }
+  
+    .aricle-text {
+      flex: 1;
+  
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+  
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+    }
+  
+    img {
+      width: 300px;
+      height: auto;
+    }
+  
+    .bottom-image {
+      align-self: center; /* optional: center the image */
+      width: 100%;
+      
+    }
+  }
 
 /* Footer */
 footer {

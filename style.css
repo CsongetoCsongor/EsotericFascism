@@ -160,8 +160,12 @@ header nav .menu a:last-child {
   animation: spin 1s linear infinite;
 }
 
+#black-sun {
+  animation: spin 2.5s linear infinite;
+}
+
 /* Main Content Section */
-.article {
+.article-type-1 {
   padding: 0;
   color: white;
   display: flex;
@@ -169,23 +173,56 @@ header nav .menu a:last-child {
   gap: 40px;
   margin: 0 5rem 5rem 5rem;
 }
-.article .aricle-text {
+.article-type-1 .aricle-text {
   flex: 1;
 }
-.article .aricle-text h2 {
+.article-type-1 .aricle-text h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-.article .aricle-text p {
+.article-type-1 .aricle-text p {
   font-size: 1rem;
   line-height: 1.6;
 }
-.article img {
+.article-type-1 img {
   width: 300px;
   height: auto;
 }
-.article:last-child {
+.article-type-1:last-child {
   margin-bottom: 0;
+}
+
+.article-type-2 {
+  padding: 0;
+  color: white;
+  margin: 0 5rem 5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.article-type-2 .article-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+.article-type-2 .aricle-text {
+  flex: 1;
+}
+.article-type-2 .aricle-text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.article-type-2 .aricle-text p {
+  font-size: 1rem;
+  line-height: 1.6;
+}
+.article-type-2 img {
+  width: 300px;
+  height: auto;
+}
+.article-type-2 .bottom-image {
+  align-self: center; /* optional: center the image */
+  width: 100%;
 }
 
 /* Footer */
