@@ -1,5 +1,15 @@
 import { changeImages1 } from "./manage_animations.js";
 
+const menuPoints = document.getElementsByClassName("menu-point");
+Array.from(menuPoints).forEach(menupoint => {
+    menupoint.addEventListener("mouseenter", function () {
+        document.getElementById("header-img").src = "./images/header-hovered.png";
+    });
+    menupoint.addEventListener("mouseleave", function () {
+        document.getElementById("header-img").src = "./images/header-2.png";
+    });
+});
+
 document.addEventListener("DOMContentLoaded", function () {
     fetch('./pages/page_0.html')
         .then(response => response.text()) // Parse the response as text (HTML content)
@@ -37,7 +47,6 @@ function loadcontent(num) {
 }
 
 function resetMenu() {
-    const menuPoints = document.getElementsByClassName("menu-point");
     Array.from(menuPoints).forEach(menupoint => {
         menupoint.classList.remove("active");
     });
