@@ -1,7 +1,8 @@
-$primary-color: #b80606;
+$primary-color: #000000;
 $background-color: #f4f4f4;
 $link-color: #007bff;
 $background-image: url('images/swastika.png');
+$background-image-2: url('images/bg-image-2-upscaled.jfif');
 
 // npx sass -w style.scss style.css
 
@@ -29,6 +30,11 @@ $background-image: url('images/swastika.png');
     border: 1px solid white;
 }
 
+@mixin glow {
+    //   box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    animation: glow-flash 15s ease-in-out infinite;
+}
+
 @keyframes spin {
     from {
         transform: rotate(0deg);
@@ -36,6 +42,20 @@ $background-image: url('images/swastika.png');
 
     to {
         transform: rotate(-360deg);
+    }
+}
+
+@keyframes glow-flash {
+    0% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(189, 232, 247, 0.8);
+    }
+
+    100% {
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
     }
 }
 
@@ -51,7 +71,7 @@ $background-image: url('images/swastika.png');
     cursor: pointer;
     user-select: none;
     overflow: hidden;
-    color: $primary-color;
+    color: red;
     z-index: 1;
     font-family: inherit;
     font-weight: 500;
@@ -67,7 +87,7 @@ $background-image: url('images/swastika.png');
         height: 100%;
         background: transparent;
         z-index: -1;
-        border: 4px solid $primary-color;
+        border: 4px solid red;
 
         &::before {
             content: "";
@@ -89,7 +109,7 @@ $background-image: url('images/swastika.png');
         span::before {
             transform: translate(-50%, -50%) rotate(-90deg);
             width: 100%;
-            background: $primary-color;
+            background: red;
         }
     }
 
@@ -114,8 +134,13 @@ body {
     margin: 0;
     color: white;
     background-color: $background-color;
-    background-image: $background-image;
-    background-size: 50px;
+    background-image: $background-image-2;
+    background-size: cover;
+    background-position: center;
+    /* centers the image */
+    background-repeat: no-repeat;
+    /* prevents tiling */
+    background-attachment: fixed;
     // font-family: Canterbury;
 }
 
@@ -129,6 +154,8 @@ body.noscroll {
 }
 
 .hero-image {
+    @include glow;
+
     img {
         width: 100%;
         height: auto;
@@ -151,6 +178,7 @@ header {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     margin: 0 0 3rem 0;
+    @include glow;
 
     h1 {
         margin: 0 0 0 1rem;
@@ -169,17 +197,12 @@ header {
                 text-decoration: none;
                 color: white;
                 cursor: pointer;
-                transition: color 0.5s, background-color 0.5s;
+                transition: color 0.5s, background-color 0.2s;
                 border-right: rgba(255, 255, 255, 0.534) 1px solid;
 
                 li {
 
                     padding: 1.5rem 1rem 1.5rem 1rem;
-                    transition: 0.5s;
-
-
-
-
                 }
 
                 &:hover {
@@ -205,8 +228,9 @@ header {
     margin: 0 0 0 0;
     padding: 2rem 0 5rem 0;
     background-color: rgb(0, 0, 0);
-    @include white_border;
+    // @include white_border;
     border-radius: 10px;
+    @include glow;
 
     h1 {
         text-align: center;
@@ -223,6 +247,13 @@ header {
     animation: spin 2.5s linear infinite;
 }
 
+hr {
+    width: 80%;
+    border-color: rgba(255, 255, 255, 0.467);
+    margin: 1rem auto 5rem auto;
+    @include glow;
+}
+
 /* Main Content Section */
 .article-type-1 {
     padding: 0;
@@ -234,9 +265,8 @@ header {
 
 
     .aricle-text {
-        // font-family: Canterbury;   
-        // margin: 5rem;
-        flex: 1; // takes up available space
+
+        flex: 1;
 
         h2 {
             font-size: 2rem;
@@ -256,6 +286,10 @@ header {
         height: auto;
     }
 
+    .glow {
+        @include glow;
+    }
+
     &:last-child {
         margin-bottom: 0;
     }
@@ -269,38 +303,200 @@ header {
     display: flex;
     flex-direction: column;
     gap: 2rem;
-  
+
     .article-top {
-      display: flex;
-      align-items: flex-start;
-      gap: 40px;
+        display: flex;
+        align-items: flex-start;
+        gap: 40px;
     }
-  
+
     .aricle-text {
-      flex: 1;
-  
-      h2 {
-        font-size: 2rem;
-        margin-bottom: 1rem;
-      }
-  
-      p {
-        font-size: 1rem;
-        line-height: 1.6;
-      }
+        flex: 1;
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
     }
-  
+
     img {
-      width: 300px;
-      height: auto;
+        width: 300px;
+        height: auto;
     }
-  
+
     .bottom-image {
-      align-self: center; /* optional: center the image */
-      width: 100%;
-      
+        align-self: center;
+        /* optional: center the image */
+        width: 100%;
+
     }
-  }
+}
+
+.article-type-3 {
+    padding: 0;
+    color: white;
+    margin: 0 5rem 5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    h2 {
+        flex: 1;
+        text-align: center;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // gap: 2rem;
+        padding: 0 2rem;
+        width: 70%;
+        margin: auto;
+
+
+        .card {
+            text-align: center;
+            padding: 1.5rem;
+            // flex: 1;
+            width: 40%;
+            height: 18rem;
+            transition: 2s;
+
+            img {
+                width: 150px;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 50%; // makes the image round
+                margin-bottom: 1rem;
+            }
+
+            h3 {
+                font-size: 2rem;
+            }
+
+            p {
+                margin: 0;
+                font-size: 1.5rem;
+                display: none;
+                transition: 1s;
+            }
+
+            &.separator {
+                border-left: 1px solid rgba(255, 255, 255, 0.467);
+                border-right: 1px solid rgba(255, 255, 255, 0.467);
+                
+                // padding: 0 2rem;
+
+            }
+
+            &:hover {
+                background-color: white;
+
+                .card-img {
+                    display: none;
+                }
+
+                .card-text {
+                    display: block;
+                    color: black;
+                }
+
+                .card-title {
+                    color: black;
+                }
+            }
+
+
+        }
+
+        .bigger-card {
+            width: 60%;
+
+            img {
+                width: 200px;
+                height: 200px;
+                object-fit: cover;
+                border-radius: 50%; // makes the image round
+                margin-bottom: 1rem;
+            }
+
+            p {
+                margin: 0;
+                font-size: 2rem;
+
+            }
+
+            h3 {
+                font-size: 2.5rem;
+            }
+        }
+
+    }
+}
+
+.article-type-4 {
+    padding: 0;
+    color: white;
+    margin: 0 5rem 5rem 5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    h2 {
+        flex: 1;
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // gap: 2rem;
+        padding: 0 2rem;
+        width: 60%;
+        margin: auto;
+
+
+        .card {
+            text-align: center;
+            padding: 1.5rem;
+            // flex: 1;
+            width: 20%;
+            
+            transition: 1s;
+
+            img {
+                width: 130px;
+                height: 130px;
+                object-fit: cover;
+                border-radius: 50%; // makes the image round
+                margin-bottom: 1rem;
+            }
+
+            &.separator {
+                border-left: 1px solid rgba(255, 255, 255, 0.467);
+                border-right: 1px solid rgba(255, 255, 255, 0.467);
+                
+                // padding: 0 2rem;
+
+            }
+
+        }
+
+    }
+}
+
+
 
 /* Footer */
 footer {
@@ -310,6 +506,7 @@ footer {
     margin: 3rem 0 0 0;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    @include glow;
 
     .footer {
         text-align: center;
@@ -363,6 +560,6 @@ footer {
 }
 
 .active {
-    background-color: $background-color!important;
-    color: $primary-color!important;
+    background-color: $background-color !important;
+    color: $primary-color !important;
 }

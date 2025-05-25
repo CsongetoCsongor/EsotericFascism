@@ -14,6 +14,17 @@
     transform: rotate(-360deg);
   }
 }
+@keyframes glow-flash {
+  0% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(189, 232, 247, 0.8);
+  }
+  100% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+  }
+}
 /* Overlay Styles */
 .button-style-1 {
   border: none;
@@ -25,7 +36,7 @@
   cursor: pointer;
   user-select: none;
   overflow: hidden;
-  color: #b80606;
+  color: red;
   z-index: 1;
   font-family: inherit;
   font-weight: 500;
@@ -41,7 +52,7 @@
   height: 100%;
   background: transparent;
   z-index: -1;
-  border: 4px solid #b80606;
+  border: 4px solid red;
 }
 .button-style-1 span::before {
   content: "";
@@ -61,7 +72,7 @@
 .button-style-1:hover span::before {
   transform: translate(-50%, -50%) rotate(-90deg);
   width: 100%;
-  background: #b80606;
+  background: red;
 }
 .button-style-1:active span::before {
   background: black;
@@ -79,8 +90,13 @@ body {
   margin: 0;
   color: white;
   background-color: #f4f4f4;
-  background-image: url("images/swastika.png");
-  background-size: 50px;
+  background-image: url("images/bg-image-2-upscaled.jfif");
+  background-size: cover;
+  background-position: center;
+  /* centers the image */
+  background-repeat: no-repeat;
+  /* prevents tiling */
+  background-attachment: fixed;
 }
 
 body.noscroll {
@@ -92,6 +108,9 @@ body.noscroll {
   margin: auto;
 }
 
+.hero-image {
+  animation: glow-flash 15s ease-in-out infinite;
+}
 .hero-image img {
   width: 100%;
   height: auto;
@@ -104,7 +123,7 @@ body.noscroll {
 }
 
 header {
-  background-color: #b80606;
+  background-color: #000000;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -112,6 +131,7 @@ header {
   border-bottom-right-radius: 10px;
   border-bottom-left-radius: 10px;
   margin: 0 0 3rem 0;
+  animation: glow-flash 15s ease-in-out infinite;
 }
 header h1 {
   margin: 0 0 0 1rem;
@@ -127,16 +147,15 @@ header nav .menu a {
   text-decoration: none;
   color: white;
   cursor: pointer;
-  transition: color 0.5s, background-color 0.5s;
+  transition: color 0.5s, background-color 0.2s;
   border-right: rgba(255, 255, 255, 0.534) 1px solid;
 }
 header nav .menu a li {
   padding: 1.5rem 1rem 1.5rem 1rem;
-  transition: 0.5s;
 }
 header nav .menu a:hover {
   background-color: #f4f4f4;
-  color: #b80606;
+  color: #000000;
 }
 header nav .menu a:last-child {
   border: none;
@@ -148,8 +167,8 @@ header nav .menu a:last-child {
   margin: 0 0 0 0;
   padding: 2rem 0 5rem 0;
   background-color: rgb(0, 0, 0);
-  border: 1px solid white;
   border-radius: 10px;
+  animation: glow-flash 15s ease-in-out infinite;
 }
 .main-content h1 {
   text-align: center;
@@ -162,6 +181,13 @@ header nav .menu a:last-child {
 
 #black-sun {
   animation: spin 2.5s linear infinite;
+}
+
+hr {
+  width: 80%;
+  border-color: rgba(255, 255, 255, 0.467);
+  margin: 1rem auto 5rem auto;
+  animation: glow-flash 15s ease-in-out infinite;
 }
 
 /* Main Content Section */
@@ -187,6 +213,9 @@ header nav .menu a:last-child {
 .article-type-1 img {
   width: 300px;
   height: auto;
+}
+.article-type-1 .glow {
+  animation: glow-flash 15s ease-in-out infinite;
 }
 .article-type-1:last-child {
   margin-bottom: 0;
@@ -221,18 +250,140 @@ header nav .menu a:last-child {
   height: auto;
 }
 .article-type-2 .bottom-image {
-  align-self: center; /* optional: center the image */
+  align-self: center;
+  /* optional: center the image */
   width: 100%;
+}
+
+.article-type-3 {
+  padding: 0;
+  color: white;
+  margin: 0 5rem 5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.article-type-3 h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.article-type-3 .card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  width: 70%;
+  margin: auto;
+}
+.article-type-3 .card-container .card {
+  text-align: center;
+  padding: 1.5rem;
+  width: 40%;
+  height: 18rem;
+  transition: 2s;
+}
+.article-type-3 .card-container .card img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.article-type-3 .card-container .card h3 {
+  font-size: 2rem;
+}
+.article-type-3 .card-container .card p {
+  margin: 0;
+  font-size: 1.5rem;
+  display: none;
+  transition: 1s;
+}
+.article-type-3 .card-container .card.separator {
+  border-left: 1px solid rgba(255, 255, 255, 0.467);
+  border-right: 1px solid rgba(255, 255, 255, 0.467);
+}
+.article-type-3 .card-container .card:hover {
+  background-color: white;
+}
+.article-type-3 .card-container .card:hover .card-img {
+  display: none;
+}
+.article-type-3 .card-container .card:hover .card-text {
+  display: block;
+  color: black;
+}
+.article-type-3 .card-container .card:hover .card-title {
+  color: black;
+}
+.article-type-3 .card-container .bigger-card {
+  width: 60%;
+}
+.article-type-3 .card-container .bigger-card img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.article-type-3 .card-container .bigger-card p {
+  margin: 0;
+  font-size: 2rem;
+}
+.article-type-3 .card-container .bigger-card h3 {
+  font-size: 2.5rem;
+}
+
+.article-type-4 {
+  padding: 0;
+  color: white;
+  margin: 0 5rem 5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.article-type-4 h2 {
+  flex: 1;
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+.article-type-4 .card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  width: 60%;
+  margin: auto;
+}
+.article-type-4 .card-container .card {
+  text-align: center;
+  padding: 1.5rem;
+  width: 20%;
+  transition: 1s;
+}
+.article-type-4 .card-container .card img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+.article-type-4 .card-container .card.separator {
+  border-left: 1px solid rgba(255, 255, 255, 0.467);
+  border-right: 1px solid rgba(255, 255, 255, 0.467);
 }
 
 /* Footer */
 footer {
-  background-color: #b80606;
+  background-color: #000000;
   color: white;
   padding: 1rem 0;
   margin: 3rem 0 0 0;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
+  animation: glow-flash 15s ease-in-out infinite;
 }
 footer .footer {
   text-align: center;
@@ -280,7 +431,7 @@ footer .footer {
 
 .active {
   background-color: #f4f4f4 !important;
-  color: #b80606 !important;
+  color: #000000 !important;
 }
 
 /*# sourceMappingURL=style.css.map */
