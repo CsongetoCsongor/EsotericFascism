@@ -59,6 +59,15 @@ $background-image-2: url('images/bg-image-2-upscaled.jfif');
     }
 }
 
+.iframe-wrapper {
+    display: flex;
+    justify-content: center;
+    /* horizontal */
+    align-items: center;
+    /* vertical */
+
+}
+
 /* Overlay Styles */
 
 .button-style-1 {
@@ -182,7 +191,6 @@ header {
 
     h1 {
         margin: 0 0 0 1rem;
-
     }
 
     nav {
@@ -192,35 +200,85 @@ header {
             margin: 0;
             padding: 0;
 
-            a {
-                display: block;
-                text-decoration: none;
-                color: white;
-                cursor: pointer;
-                transition: color 0.5s, background-color 0.2s;
-                border-right: rgba(255, 255, 255, 0.534) 1px solid;
+            li {
+                position: relative; // Needed for positioning submenu
 
-                li {
+                a {
+                    display: block;
+                    text-decoration: none;
+                    color: white;
+                    cursor: pointer;
+                    transition: color 0.5s, background-color 0.2s;
+                    border-right: rgba(255, 255, 255, 0.534) 1px solid;
+                    padding: 1.5rem 1rem;
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 0.3rem;
 
-                    padding: 1.5rem 1rem 1.5rem 1rem;
+                    &:hover {
+                        background-color: $background-color;
+                        color: $primary-color;
+                    }
                 }
 
-                &:hover {
-                    background-color: $background-color;
-                    color: $primary-color;
+                .dropdown-icon {
+                    display: block; // remove any inline gap issues
+                    width: 16px; // adjust icon size as needed
+                    height: auto;
                 }
 
-
-
-                &:last-child {
+                &:last-child a {
                     border: none;
-                    border-bottom-right-radius: 10px;
+                    // border-bottom-right-radius: 10px;
+                }
+
+                // Submenu styling
+                &.has-submenu {
+                    .submenu {
+                        display: none !important;
+                        position: absolute;
+                        top: 100%;
+                        left: 0;
+                        background-color: $primary-color;
+                        // border-radius: 10px 10px 10px 10px;
+                        white-space: nowrap;
+                        padding: 0;
+                        margin: 0;
+                        display: flex;
+                        flex-direction: row;
+                        // @include glow;
+                        box-shadow:
+                            -10px 0 20px -10px rgba(255, 255, 255, 0.8),
+                            /* left shadow */
+                            10px 0 20px -10px rgba(255, 255, 255, 0.8);
+                        /* right shadow */
+                        
+
+                        li {
+                            list-style: none;
+
+                            a {
+                                padding: 1rem;
+                                white-space: nowrap;
+                                border-right: 1px solid rgba(255, 255, 255, 0.3);
+                            }
+
+                            &:last-child a {
+                                border-right: none;
+                            }
+                        }
+                    }
+
+                    &:hover .submenu {
+                        display: flex !important;
+                        height: 3rem;
+                    }
                 }
             }
-
         }
     }
 }
+
 
 
 .main-content {
@@ -392,7 +450,7 @@ hr {
             &.separator {
                 border-left: 1px solid rgba(255, 255, 255, 0.467);
                 border-right: 1px solid rgba(255, 255, 255, 0.467);
-                
+
                 // padding: 0 2rem;
 
             }
@@ -472,7 +530,7 @@ hr {
             padding: 1.5rem;
             // flex: 1;
             width: 20%;
-            
+
             transition: 1s;
 
             img {
@@ -486,7 +544,7 @@ hr {
             &.separator {
                 border-left: 1px solid rgba(255, 255, 255, 0.467);
                 border-right: 1px solid rgba(255, 255, 255, 0.467);
-                
+
                 // padding: 0 2rem;
 
             }

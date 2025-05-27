@@ -1,7 +1,8 @@
 import { changeImages1 } from "./manage_animations.js";
 
 const menuPoints = document.getElementsByClassName("menu-point");
-Array.from(menuPoints).forEach(menupoint => {
+const menu = document.getElementsByClassName("menu");
+Array.from(menu).forEach(menupoint => {
     menupoint.addEventListener("mouseenter", function () {
         document.getElementById("header-img").src = "./images/header-hovered.png";
     });
@@ -24,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 });
 
-for (let index = 0; index <= 4; index++) {
+for (let index = 0; index <= 5; index++) {
     loadcontent(index);
 }
 
