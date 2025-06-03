@@ -86,8 +86,16 @@ Array.from(submenuPoints).forEach(item => {
                 // Scroll to the span with the ID
                 setTimeout(() => {
                     const targetSpan = document.getElementById(targetSpanId);
-                    if (targetSpan) {
-                        targetSpan.scrollIntoView({ behavior: "smooth" });
+                    const header = document.querySelector('header');
+                    if (targetSpan && header) {
+                        const headerHeight = header.offsetHeight;
+                        const targetPosition = targetSpan.getBoundingClientRect().top + window.pageYOffset;
+                        const scrollPosition = targetPosition - 2.3 * headerHeight;
+                
+                        window.scrollTo({
+                            top: scrollPosition,
+                            behavior: "smooth"
+                        });
                     }
                 }, 100);
             })
