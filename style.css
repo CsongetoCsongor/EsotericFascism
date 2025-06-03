@@ -141,7 +141,7 @@ header {
   margin: 0 0 3rem 0;
   animation: glow-flash 15s ease-in-out infinite;
   position: relative;
-  transition: all 3s ease;
+  transition: all 0.3s ease;
 }
 header.sticky {
   position: fixed;
@@ -152,6 +152,12 @@ header.sticky {
   border-radius: 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   border-radius: 0;
+}
+header.sticky .menu > li:last-child > a {
+  border-bottom-right-radius: 0 !important;
+}
+header.sticky .menu > li:last-child > a:hover, header.sticky .menu > li:last-child > a.active {
+  border-bottom-right-radius: 0 !important;
 }
 header h1 {
   margin: 0 0 0 1rem;
@@ -236,6 +242,17 @@ header nav .menu li.has-submenu:last-child .submenu {
 header nav .menu li.has-submenu:hover .submenu {
   display: flex !important;
   height: 3rem;
+}
+
+.active {
+  background-color: #f4f4f4 !important;
+  color: #000000 !important;
+}
+.active:last-child {
+  border-bottom-right-radius: 10px;
+}
+.active:first-child {
+  border-bottom-right-radius: 0;
 }
 
 .main-content {
@@ -548,17 +565,6 @@ footer .footer {
   color: red;
   background-color: black;
   font-size: 30px;
-}
-
-.active {
-  background-color: #f4f4f4 !important;
-  color: #000000 !important;
-}
-.active:last-child {
-  border-bottom-right-radius: 10px;
-}
-.active:first-child {
-  border-bottom-right-radius: 0;
 }
 
 /*# sourceMappingURL=style.css.map */

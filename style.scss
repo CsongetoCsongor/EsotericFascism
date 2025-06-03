@@ -189,7 +189,7 @@ header {
     margin: 0 0 3rem 0;
     @include glow;
     position: relative; // Default state
-    transition: all 3s ease;
+    transition: all 0.3s ease;
 
     &.sticky {
         position: fixed;
@@ -201,6 +201,15 @@ header {
         border-radius: 0;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); // Optional shadow
         border-radius: 0;
+
+        .menu > li:last-child > a {
+            border-bottom-right-radius: 0 !important;
+        
+            &:hover,
+            &.active {
+              border-bottom-right-radius: 0 !important;
+            }
+          }
         
       }
 
@@ -245,6 +254,8 @@ header {
                         }
                     
                     }
+
+                    
                 }
 
                 .dropdown-icon {
@@ -324,7 +335,16 @@ header {
     }
 }
 
-
+.active {
+    background-color: $background-color !important;
+    color: $primary-color !important;
+    &:last-child{
+        border-bottom-right-radius: 10px;
+    }
+    &:first-child{
+        border-bottom-right-radius: 0;
+    }
+}
 
 .main-content {
     display: block;
@@ -722,13 +742,3 @@ footer {
     }
 }
 
-.active {
-    background-color: $background-color !important;
-    color: $primary-color !important;
-    &:last-child{
-        border-bottom-right-radius: 10px;
-    }
-    &:first-child{
-        border-bottom-right-radius: 0;
-    }
-}
